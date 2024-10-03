@@ -12,7 +12,6 @@
     {% endif %}
 
     <script src="https://twnsnd-slowsite-reviews.netlify.app/reviews.js" defer></script>
-    <script src="https://unpkg.com/lazysizes@5.3.2/lazysizes.js" async></script>
     <script src="/scripts/cookies.js" type="module"></script>
 
     <style>{% include "styles/fonts.css" %}</style>
@@ -26,7 +25,17 @@
       <style>{% include "styles/homepage.css" %}</style>
     {% endif %}
 
-    <link rel="preload" as="image" href="/images/product-image-1-preview.jpg?width=100" />
+    {% if product %}
+      <!-- our preview LCP: -->
+      <link rel="preload" as="image" fetchpriority="high" href="{{ product.images[0].preview_src }}?width=400&q=30" />
+      <!-- optional: -->
+      <link rel="preload" as="image" type="image/avif" imagesizes="(max-width: 800px) 100vw, 400px"
+        imagesrcset="{{ product.images[0].src }}?fm=avif&q=50&width=800 400w, {{ product.images[0].src }}?fm=avif&q=50&width=1000 500w, {{ product.images[0].src }}?fm=avif&q=50&width=1000 600w"
+      />
+      <link rel="preload" as="image" type="image/webp" imagesizes="(max-width: 800px) 100vw, 400px"
+        imagesrcset="{{ product.images[0].src }}?fm=webp&q=50&width=800 400w, {{ product.images[0].src }}?fm=webp&q=50&width=1000 500w, {{ product.images[0].src }}?fm=webp&q=50&width=1000 600w"
+      />
+    {% endif %}
 
     <meta name="robots" content="noindex,nofollow" />
     <meta name="description" content="A purposefully slow website for educational purposes">
