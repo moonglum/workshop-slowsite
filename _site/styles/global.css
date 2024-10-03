@@ -1,7 +1,3 @@
-@import url("/styles/cookies.css");
-@import url("/styles/homepage.css");
-@import url("/styles/product-detail-page.css");
-
 :root {
   --background-color: #20201D;
   --text-color: #E0DCC4;
@@ -45,5 +41,12 @@ a {
 
   a {
     text-decoration: none;
+  }
+}
+
+.logo {
+  img {
+    width: auto;
+    height: 60px;
   }
 }
