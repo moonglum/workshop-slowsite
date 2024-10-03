@@ -115,7 +115,7 @@
 
 .product-reviews > div:empty {
   min-height: 100px;
-  background: url("/images/icon-loading.svg") no-repeat center;
+  background: url("/optim/images/icon-loading.svg") no-repeat center;
 }
 
 .review {
